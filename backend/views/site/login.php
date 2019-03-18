@@ -17,19 +17,47 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
+            <?php $form = ActiveForm::begin([
+                'id' => 'login-form',
+	            'action' => '#',
+            ]); ?>
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
                 <div class="form-group">
                     <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
-
             <?php ActiveForm::end(); ?>
         </div>
     </div>
 </div>
+
+
+<script>
+	<?php ob_start()?>
+
+	(function () {
+		$('#login-form').submit(function (e) {
+			e.preventDefault();
+
+			$.post(
+				'/api/auth',
+				{
+					username: $('#loginform-username').val(),
+					password: $('#loginform-password').val()
+				},
+				function (data) {
+					if (data.token) {
+						localStorage.setItem('accessToken', data.token);
+						location.href = '/backend/';
+					} else {
+						alert(data);
+					}
+				}
+			);
+		});
+	})();
+
+	<?php $this->registerJs(ob_get_clean())?>
+</script>

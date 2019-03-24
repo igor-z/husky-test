@@ -3,5 +3,5 @@ namespace api\controllers;
 
 class UserController extends ApiController
 {
-	public $modelClass = 'common\models\User';
+    public $modelClass = 'common\models\User';
 }

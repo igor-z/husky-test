@@ -9,8 +9,8 @@ use yii\rest\ActiveController;
 
 class ApiController extends ActiveController
 {
-	public function behaviors()
-	{
+    public function behaviors()
+    {
 		$behaviors = parent::behaviors();
 		$behaviors['authenticator'] = [
 			'class' => CompositeAuth::class,
@@ -31,5 +31,5 @@ class ApiController extends ActiveController
 		];
 
 		return $behaviors;
-	}
+    }
 }

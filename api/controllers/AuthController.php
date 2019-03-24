@@ -7,8 +7,8 @@ use yii\rest\Controller;
 
 class AuthController extends Controller
 {
-	public function actionIndex()
-	{
+    public function actionLogin()
+    {
 		$model = new AuthForm();
 		$model->load(Yii::$app->request->bodyParams, '');
 		if ($token = $model->auth()) {
@@ -16,12 +16,18 @@ class AuthController extends Controller
 		} else {
 			return $model;
 		}
-	}
+    }
 
-	protected function verbs()
-	{
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+    }
+
+    protected function verbs()
+    {
 		return [
-			'index' => ['post'],
+			'login' => ['post'],
+			'logout' => ['post'],
 		];
-	}
+    }
 }

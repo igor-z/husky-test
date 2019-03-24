@@ -62,7 +62,7 @@ class User extends ActiveRecord implements IdentityInterface
 	 */
     public function getAccessTokens()
     {
-    	return $this->hasMany(Token::class, ['id' => 'user_id']);
+    	return $this->hasMany(Token::class, ['user_id' => 'id']);
     }
 
     /**
@@ -78,7 +78,10 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-	    return static::findOne(['access_token' => $token]);
+	    return static::find()
+            ->joinWith(['accessTokens'])
+            ->where(['token' => $token])
+            ->one();
     }
 
     /**

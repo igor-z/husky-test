@@ -46,3 +46,6 @@ phpunit.phar
 /api/web/robots.txt
 
 /database
+/node_modules
+/yarn-error.log
+/backend/web/dist

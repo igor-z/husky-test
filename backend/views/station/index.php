@@ -2,7 +2,7 @@
 ?>
 
 <div class="container">
-	<div class="row">
+    <div class="row">
 		<div class="col-sm">
 			One of three columns
 		</div>
@@ -12,13 +12,13 @@
 		<div class="col-sm">
 			One of three columns
 		</div>
-	</div>
+    </div>
 </div>
 
 <script>
-	<?php ob_start()?>
+    <?php ob_start()?>
 
-	(function () {
+    (function () {
 		$.ajax({
 			url: '/api/station',
 			data: {
@@ -32,7 +32,7 @@
 			.success(function (data) {
 				alert(data);
 			});
-	})();
+    })();
 
-	<?php $this->registerJs(ob_get_clean())?>
+    <?php $this->registerJs(ob_get_clean())?>
 </script>

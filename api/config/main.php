@@ -17,18 +17,18 @@ return [
     'modules' => [],
     'components' => [
         'request' => [
-	        'baseUrl' => '/api',
+            'baseUrl' => '/api',
             'csrfParam' => '_csrf-api',
-	        'parsers' => [
+            'parsers' => [
 		        'application/json' => 'yii\web\JsonParser',
-	        ],
+            ],
         ],
         'user' => [
             'identityClass' => 'common\models\User',
-	        'enableSession' => false,
-	        'loginUrl' => null,
+            'enableSession' => false,
+            'loginUrl' => null,
         ],
-	    'response' => [
+        'response' => [
 		    'formatters' => [
 			    'json' => [
 				    'class' => 'yii\web\JsonResponseFormatter',
@@ -36,7 +36,7 @@ return [
 				    'encodeOptions' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
 			    ],
 		    ],
-	    ],
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -47,16 +47,16 @@ return [
             ],
         ],
         'urlManager' => [
-	        'baseUrl' => '/api',
+            'baseUrl' => '/api',
             'enablePrettyUrl' => true,
-	        'enableStrictParsing' => true,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-            	'auth' => 'auth/index',
-	            ['class' => RestUrlRule::class, 'controller' => 'user'],
-	            ['class' => RestUrlRule::class, 'controller' => 'station'],
-	            ['class' => RestUrlRule::class, 'controller' => 'schedule'],
-	            ['class' => RestUrlRule::class, 'controller' => 'carrier'],
+                ['class' => RestUrlRule::class, 'controller' => 'user'],
+                ['class' => RestUrlRule::class, 'controller' => 'station'],
+                ['class' => RestUrlRule::class, 'controller' => 'schedule'],
+                ['class' => RestUrlRule::class, 'controller' => 'carrier'],
+                '<controller>/<action>' => '<controller>/<action>',
             ],
         ],
     ],

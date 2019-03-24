@@ -3,5 +3,5 @@ namespace api\controllers;
 
 class CarrierController extends ApiController
 {
-	public $modelClass = 'common\models\Carrier';
+    public $modelClass = 'common\models\Carrier';
 }

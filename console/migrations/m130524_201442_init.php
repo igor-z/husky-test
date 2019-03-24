@@ -58,9 +58,9 @@ class m130524_201442_init extends Migration
         $this->createTable('{{%schedule}}', [
         	'id' => $this->primaryKey(),
 	        'departure_station_id' => $this->integer()->notNull(),
-	        'departure_time' => $this->dateTime()->notNull(),
+	        'departure_time' => $this->integer()->notNull(),
 	        'arrival_station_id' => $this->integer()->notNull(),
-	        'arrival_time' => $this->dateTime()->notNull(),
+	        'arrival_time' => $this->integer()->notNull(),
 	        'ticket_price' => $this->money()->notNull(),
 	        'carrier_id' => $this->integer()->notNull(),
 	        'schedule' => $this->tinyInteger()->notNull(),

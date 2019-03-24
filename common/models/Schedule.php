@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\behaviors\BitMaskBehavior;
 use Yii;
 
 /**
@@ -37,8 +38,7 @@ class Schedule extends \yii\db\ActiveRecord
     {
         return [
             [['departure_station_id', 'departure_time', 'arrival_station_id', 'arrival_time', 'ticket_price', 'carrier_id', 'schedule'], 'required'],
-            [['departure_station_id', 'arrival_station_id', 'carrier_id', 'schedule'], 'integer'],
-            [['departure_time', 'arrival_time'], 'safe'],
+            [['departure_time', 'arrival_time', 'departure_station_id', 'arrival_station_id', 'carrier_id', 'schedule'], 'integer'],
             [['ticket_price'], 'number'],
             [['arrival_station_id'], 'exist', 'skipOnError' => true, 'targetClass' => Station::class, 'targetAttribute' => ['arrival_station_id' => 'id']],
             [['carrier_id'], 'exist', 'skipOnError' => true, 'targetClass' => Carrier::class, 'targetAttribute' => ['carrier_id' => 'id']],
@@ -85,5 +85,33 @@ class Schedule extends \yii\db\ActiveRecord
     public function getDepartureStation()
     {
         return $this->hasOne(Station::class, ['id' => 'departure_station_id']);
+    }
+
+    public function extraFields()
+    {
+        return [
+            'carrier',
+            'departureStation',
+            'arrivalStation'
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'bitMask' => [
+                'class' => BitMaskBehavior::class,
+                'attribute' => 'schedule',
+                'masks' => [
+                    1 << 0 => 'mon',
+                    1 << 1 => 'tue',
+                    1 << 2 => 'wed',
+                    1 << 3 => 'thu',
+                    1 << 4 => 'fri',
+                    1 << 5 => 'sat',
+                    1 << 6 => 'sun',
+                ],
+            ],
+        ];
     }
 }

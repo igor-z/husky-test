@@ -1,22 +1,21 @@
 Установка:
 
-`git clone https://github.com/igor-z/husky-test`
+Уже должны быть установлены: composer, npm или yarn, docker, docker-compose.
 
-`cd husky-test`
+После этого выполняем команды:
 
-Устанавливаем пакеты composer'а:
+`git clone https://github.com/igor-z/husky-test && cd husky-test`
+
 `composer install`
 
-Устанавливаем пакеты npm:
 `npm install`
 
-Собираем пакеты webpack'ом:
 `npm run build`
 
-Запускаем контейнер:
 `sudo docker-compose up -d`
 
-Подключаемся к контейнеру:
+Если имя запущенного контейнера отличается от `husky-test_web_1`, то подставляем его:
+
 `sudo docker exec -it husky-test_web_1 /bin/bash`
 
 В контейнере:

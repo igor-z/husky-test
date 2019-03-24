@@ -24,5 +24,9 @@
 
 `./yii migrate`
 
-Админка доступна по адресу
+Админка доступна по адресу:
 `http://localhost/backend/`
+
+Доступы:
+
+`admin`: `MNwo9c21mNxtS2`

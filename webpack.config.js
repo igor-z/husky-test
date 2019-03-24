@@ -39,7 +39,6 @@ module.exports = {
 			}
 		]
 	},
-	watch: true,
 	plugins: [
 		new VueLoaderPlugin()
 	]

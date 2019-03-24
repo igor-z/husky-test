@@ -1,6 +1,6 @@
 <template>
     <div style="width: 100%">
-	    <router-link to="/schedule/add" class="btn btn-primary">Add Schedule Item</router-link>
+	    <router-link to="/schedule/add" class="btn btn-success">Add Schedule Item</router-link>
 
 		<table class="table">
 			<thead class="thead-dark">

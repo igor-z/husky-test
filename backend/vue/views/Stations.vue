@@ -1,6 +1,6 @@
 <template>
 	<div style="width: 100%">
-		<router-link to="/station/add" class="btn btn-primary">Add Station</router-link>
+		<router-link to="/station/add" class="btn btn-success">Add Station</router-link>
 
 		<table class="table">
 			<thead class="thead-dark">

@@ -1,6 +1,6 @@
 <template>
 	<div style="width: 100%">
-		<router-link to="/carrier/add" class="btn btn-primary">Add Carrier</router-link>
+		<router-link to="/carrier/add" class="btn btn-success">Add Carrier</router-link>
 
 		<table class="table">
 			<thead class="thead-dark">
